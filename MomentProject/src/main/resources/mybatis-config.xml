@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+   	<!-- 대표적인 설정들 -->
+   		<!-- 캐시를 쓸건지 안쓸건지 -->
+		<setting name="cacheEnabled" value="true" />  
+   		<!-- insert시 auto increment 받아오는 것 -->
+		<setting name="useGeneratedKeys" value="false" /> 
+   		<!-- _(언더바)로 쓴 변수명 CamelCase(카멜표기법)로 연동하는 것-->
+		<setting name="mapUnderscoreToCamelCase" value="false" />
+		
+	</settings>
+</configuration>
