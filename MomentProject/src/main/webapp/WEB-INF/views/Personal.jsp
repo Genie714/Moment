@@ -111,7 +111,7 @@ if (user_id == null && admin == null) {
 			</form>
 		</div>
 		<!-- End Search Bar -->
-		<c:import url="/notification.action"></c:import>
+		<%-- <c:import url="/notification.action"></c:import> --%>
 		
 		<!-- End Icons Navigation -->
 

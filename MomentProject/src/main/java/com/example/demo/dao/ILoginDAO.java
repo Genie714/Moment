@@ -7,4 +7,7 @@ public interface ILoginDAO
 	public MemberDTO login(MemberDTO member);
 	
 	public MemberDTO loginAdmin(MemberDTO member);
+	
+	public void updatePassword(String username, String password);
+
 }

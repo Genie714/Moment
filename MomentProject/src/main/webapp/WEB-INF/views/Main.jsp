@@ -1,9 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%
-	request.setCharacterEncoding("UTF-8");
+request.setCharacterEncoding("UTF-8");
 String cp = request.getContextPath();
-String user_id = (String) session.getAttribute("user_id");
 %>
 <!DOCTYPE html>
 <html>
@@ -64,14 +63,18 @@ String user_id = (String) session.getAttribute("user_id");
 				</ul>
 				<i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
 			</nav>
-			<c:if test="<%=user_id == null%>">
-				<button type="button" id="loginBtn" class="btn-getstarted"
-					onclick="location.href='loginform.action'">Login</button>
-			</c:if>
-			<c:if test="<%=user_id != null%>">
-				<button type="button" id="logoutBtn" class="btn-getstarted"
-					onclick="location.href='logout.action'">Logout</button>
-			</c:if>
+			<c:choose>
+				<c:when test="${isLoggedIn}">
+					<button type="button" id="logoutBtn" class="btn-getstarted"
+						onclick="location.href='logout.action'">Logout</button>
+				</c:when>
+				<c:otherwise>
+					<button type="button" id="loginBtn" class="btn-getstarted"
+						onclick="location.href='loginform.action'">Login</button>
+				</c:otherwise>
+			</c:choose>
+
+			
 		</div>
 	</header>
 	<main class="main">

@@ -7,16 +7,20 @@
  		<result column="USER_ID" property="user_id"/>
  	</resultMap>
 	<select id="login" resultType="com.example.demo.dto.MemberDTO">
-		SELECT user_id
+		SELECT user_id ,pw,my_id
 		FROM US_INFORMATIONVIEW
 		WHERE MY_ID = #{my_id}
-		  AND PW = #{pw}
 	</select>
 	
 	<select id="loginAdmin" resultType="com.example.demo.dto.MemberDTO">
-		SELECT ID AS USER_ID
+		SELECT ID AS MY_ID, pw
 		FROM ADMIN
 		WHERE ADMIN_ID = #{my_id}
-		  AND PW = #{pw}
 	</select>
+	
+	<update id="updatePassword">
+		UPDATE US_INFORMATION
+		SET pw = #{password}
+		WHERE MY_ID = #{username}
+	</update>
 </mapper>
